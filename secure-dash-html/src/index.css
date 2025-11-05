@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Cybersecurity Dashboard Theme - Light Mode */
+    --background: 220 20% 97%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Cyber Blue Primary */
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Electric Blue Variant */
+    --primary-electric: 195 100% 55%;
+    
+    /* Dark Navy Secondary */
+    --secondary: 220 30% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Security Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Threat Levels */
+    --threat-low: 142 76% 36%;
+    --threat-medium: 38 92% 50%;
+    --threat-high: 0 84% 60%;
+    --threat-critical: 0 100% 40%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 90%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Cybersecurity Theme */
+    --background: 220 30% 5%;
+    --foreground: 220 15% 85%;
+
+    --card: 220 25% 8%;
+    --card-foreground: 220 15% 85%;
+
+    --popover: 220 25% 8%;
+    --popover-foreground: 220 15% 85%;
+
+    /* Bright cyber blue on dark */
+    --primary: 210 100% 55%;
+    --primary-foreground: 220 30% 5%;
+    
+    /* Electric blue remains bright */
+    --primary-electric: 195 100% 60%;
+    
+    /* Lighter secondary for dark mode */
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 15% 85%;
+
+    --muted: 220 20% 12%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 210 100% 55%;
+    --accent-foreground: 220 30% 5%;
+
+    /* Security colors for dark mode */
+    --success: 142 76% 45%;
+    --success-foreground: 220 30% 5%;
+    
+    --warning: 38 92% 60%;
+    --warning-foreground: 220 30% 5%;
+    
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 220 30% 5%;
+    
+    /* Threat levels for dark mode */
+    --threat-low: 142 76% 45%;
+    --threat-medium: 38 92% 60%;
+    --threat-high: 0 84% 65%;
+    --threat-critical: 0 100% 50%;
+
+    --border: 220 20% 15%;
+    --input: 220 20% 12%;
+    --ring: 210 100% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cybersecurity Dashboard Utilities */
+@layer utilities {
+  /* Gradients */
+  .gradient-cyber {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-electric)));
+  }
+  
+  .gradient-threat {
+    background: linear-gradient(135deg, hsl(var(--threat-high)), hsl(var(--threat-critical)));
+  }
+  
+  .gradient-safe {
+    background: linear-gradient(135deg, hsl(var(--success)), hsl(var(--threat-low)));
+  }
+
+  /* Animations */
+  .scan-pulse {
+    animation: scan-pulse 2s ease-in-out infinite;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  
+  .threat-glow {
+    box-shadow: 0 0 20px hsl(var(--threat-high) / 0.4);
+  }
+  
+  /* Fade in animation for smooth page loads */
+  .animate-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes scan-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
